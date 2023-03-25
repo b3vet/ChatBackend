@@ -1,42 +1,31 @@
-# Slim Framework 4 Skeleton Application
+# Chat Application Backend
 
-[![Coverage Status](https://coveralls.io/repos/github/slimphp/Slim-Skeleton/badge.svg?branch=master)](https://coveralls.io/github/slimphp/Slim-Skeleton?branch=master)
+This application is a REST API written in PHP 8 using Slim 4 Framework
 
-Use this skeleton application to quickly setup and start working on a new Slim Framework 4 application. This application uses the latest Slim 4 with Slim PSR-7 implementation and PHP-DI container implementation. It also uses the Monolog logger.
+## Run the Application
 
-This skeleton application was built for Composer. This makes setting up a new Slim Framework application quick and easy.
-
-## Install the Application
-
-Run this command from the directory in which you want to install your new Slim Framework application. You will require PHP 7.4 or newer.
+Run this commands from the base directory of the application. You will require PHP 8.0 or newer.
 
 ```bash
-composer create-project slim/slim-skeleton [my-app-name]
+composer install
 ```
 
-Replace `[my-app-name]` with the desired directory name for your new application. You'll want to:
-
-* Point your virtual host document root to your new application's `public/` directory.
-* Ensure `logs/` is web writable.
-
-To run the application in development, you can run these commands 
-
 ```bash
-cd [my-app-name]
 composer start
 ```
 
-Or you can use `docker-compose` to run the app with `docker`, so you can run these commands:
-```bash
-cd [my-app-name]
-docker-compose up -d
-```
-After that, open `http://localhost:8080` in your browser.
+The application with its local development environment settings will start and serve at `http://localhost:8080`.
 
-Run this command in the application directory to run the test suite
+## Documentation
 
-```bash
-composer test
-```
+All the endpoints and their description can be found in the Postman collection in the base directory of the project with name `Chat_Backend.postman_collection.json`.
 
-That's it! Now go build something cool.
+This collection can be imported into Postman and all the endpoints can be tested.
+
+
+
+
+
+
+
+Unit tests are just skeleton code and does not work at the moment. Will be made available upon request.

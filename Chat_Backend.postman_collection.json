@@ -2,6 +2,7 @@
 	"info": {
 		"_postman_id": "36577113-e6ed-4ecd-aef7-10678cee4008",
 		"name": "Chat Backend",
+		"description": "This collection shows each endpoint in the API, their expected bodies or parameters and URLs to reach them.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -31,7 +32,8 @@
 							"path": [
 								"users"
 							]
-						}
+						},
+						"description": "Post request to /users\n\nExpects:\n\nfirstName: string,\n\nlastName: string,\n\nusername: string\n\nReturns:\n\nCreated user object"
 					},
 					"response": []
 				},
@@ -49,7 +51,8 @@
 							"path": [
 								"users"
 							]
-						}
+						},
+						"description": "Get request to /users\n\nReturns:\n\nArray of user objects"
 					},
 					"response": []
 				},
@@ -68,11 +71,13 @@
 								"users",
 								"1"
 							]
-						}
+						},
+						"description": "Get request to /users/{{userId}}\n\nExpects:\n\nuserId: int (in the url)\n\nReturns:\n\nUser object with the given id\n\nThrows: UserNotFoundException"
 					},
 					"response": []
 				}
-			]
+			],
+			"description": "User related action endpoints."
 		},
 		{
 			"name": "Message",
@@ -91,7 +96,8 @@
 							"path": [
 								"messages"
 							]
-						}
+						},
+						"description": "Get request to /messages\n\nReturns:\n\nArray of message objects"
 					},
 					"response": []
 				},
@@ -118,7 +124,8 @@
 							"path": [
 								"messages"
 							]
-						}
+						},
+						"description": "Post request to /messages\n\nExpects:\n\ntext: string,\n\nto: int,\n\nfrom: int\n\nReturns:\n\nCreated message object\n\nThrows:\n\nUserNotFoundException\n\n\"to\" and \"from\" values are user ids. This endpoint checks if a chat exists between given users, if so, creates the message and relates the message with the found chat, else, creates a new chat between given users, creates the message and relates the message with the created chat."
 					},
 					"response": []
 				},
@@ -137,7 +144,8 @@
 								"messages",
 								"1"
 							]
-						}
+						},
+						"description": "Get request to /messages/{{chatId}}\n\nExpects:\n\nchatId: int (in the url)\n\nReturns:\n\nArray of messages of given chat\n\nThrows:\n\nChatNotFoundException"
 					},
 					"response": []
 				},
@@ -157,7 +165,8 @@
 								"to-user",
 								"2"
 							]
-						}
+						},
+						"description": "Get request to /messages/to-user/{{userId}}\n\nExpects:\n\nuserId: int (in the url)\n\nReturns:\n\nArray of messages that are sent to the given user\n\nThrows:\n\nUserNotFoundException"
 					},
 					"response": []
 				},
@@ -176,11 +185,13 @@
 								"messages",
 								"3"
 							]
-						}
+						},
+						"description": "Delete request to /messages/{{messageId}}\n\nExpects:\n\nmessageId: int (in the url)\n\nReturns:\n\nnull\n\nThrows:\n\nMessageNotFoundException"
 					},
 					"response": []
 				}
-			]
+			],
+			"description": "Message related action endpoints."
 		},
 		{
 			"name": "Chat",
@@ -199,7 +210,8 @@
 							"path": [
 								"chats"
 							]
-						}
+						},
+						"description": "Get request to /chats\n\nReturns:\n\nArray of chat objects"
 					},
 					"response": []
 				},
@@ -219,7 +231,8 @@
 								"user",
 								"1"
 							]
-						}
+						},
+						"description": "Get request to /chats/user/{{userId}}\n\nExpects:\n\nuserId: int (in the url)\n\nReturns:\n\nArray of chat objects and messages inside them, that are related to the given user.\n\nThrows:\n\nUserNotFoundException"
 					},
 					"response": []
 				},
@@ -238,11 +251,13 @@
 								"chats",
 								"2"
 							]
-						}
+						},
+						"description": "Delete request to /chats/{{chatId}}\n\nExpects:\n\nchatId: int (in the url)\n\nReturns:\n\nnull\n\nThrows:\n\nChatNotFoundException"
 					},
 					"response": []
 				}
-			]
+			],
+			"description": "Chat related endpoints."
 		}
 	],
 	"event": [
